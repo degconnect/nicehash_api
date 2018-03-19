@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='nicehash_api',
-      version='0.1',
+      version='0.11',
       description='API for nicehash',
       keywords='nicehash mine',
       url='https://github.com/edilio/nicehash_api',

@@ -98,3 +98,44 @@ def close_order(location, algo, order):
     ret = resp.json()
     return ret['result']
 
+
+def set_limit(location, algo, order, limit):
+    """
+    https://api.nicehash.com/api?method=orders.set.limit&id=8&key=3583b1df-5e93-4ba0-96d7-7d621fe15a17&location=0&algo=0&order=1881&limit=1.0
+    :param location:
+    :param algo:
+    :param order:
+    :param limit:
+    :return:
+    """
+    resp = query('orders.remove', {'location': location, 'algo': algo, 'order': order, 'limit': limit})
+    ret = resp.json()
+    return ret['result']
+
+
+def set_price(location, algo, order, price):
+    """
+    https://api.nicehash.com/api?method=orders.set.price&id=8&key=3583b1df-5e93-4ba0-96d7-7d621fe15a17&location=0&algo=0&order=1881&price=2.1
+    :param location:
+    :param algo:
+    :param order:
+    :param price:
+    :return:
+    """
+    resp = query('orders.set.price', {'location': location, 'algo': algo, 'order': order, 'price': price})
+    ret = resp.json()
+    return ret['result']
+
+
+def refill(location, algo, order, amount):
+    """
+    https://api.nicehash.com/api?method=orders.refill&id=8&key=3583b1df-5e93-4ba0-96d7-7d621fe15a17&location=0&algo=0&order=123&amount=0.01
+    :param location:
+    :param algo:
+    :param order:
+    :param amount:
+    :return:
+    """
+    resp = query('orders.refill', {'location': location, 'algo': algo, 'order': order, 'amount': amount})
+    ret = resp.json()
+    return ret['result']

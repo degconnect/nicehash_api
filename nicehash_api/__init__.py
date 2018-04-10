@@ -108,7 +108,7 @@ def set_limit(location, algo, order, limit):
     :param limit:
     :return:
     """
-    resp = query('orders.remove', {'location': location, 'algo': algo, 'order': order, 'limit': limit})
+    resp = query('orders.set.limit', {'location': location, 'algo': algo, 'order': order, 'limit': limit})
     ret = resp.json()
     return ret['result']
 

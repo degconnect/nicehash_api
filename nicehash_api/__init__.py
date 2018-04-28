@@ -14,6 +14,87 @@ API_URL = 'https://api.nicehash.com/api'
 PRIVATE_METHODS = ['orders.get&my', 'orders.create', 'orders.refill', 'orders.remove', 'orders.set.price',
                    'orders.set.price.decrease', 'orders.set.limit', 'balance']
 
+# Nicehash algorithms
+
+nha_Scrypt = 0
+nha_SHA256 = 1
+nha_ScryptNf = 2
+nha_X11 = 3
+nha_X13 = 4
+nha_Keccak = 5
+nha_X15 = 6
+nha_Nist5 = 7
+nha_NeoScrypt = 8
+nha_Lyra2RE = 9
+nha_WhirlpoolX = 10
+nha_Qubit = 11
+nha_Quark = 12
+nha_Axiom = 13
+nha_Lyra2REv2 = 14
+nha_ScryptJaneNf16 = 15
+nha_Blake256r8 = 16
+nha_Blake256r14 = 17
+nha_Blake256r8vnl = 18
+nha_Hodl = 19
+nha_DaggerHashimoto = 20
+nha_Decred = 21
+nha_CryptoNight = 22
+nha_Lbry = 23
+nha_Equihash = 24
+nha_Pascal = 25
+nha_X11Gost = 26
+nha_Sia = 27
+nha_Blake2s = 28
+nha_Skunk = 29
+
+ALGO_CHOICES = (
+    (nha_Scrypt, 'Scrypt'),
+    (nha_SHA256, 'SHA256'),
+    (nha_Nist5, 'Nist5'),
+    (nha_Skunk, 'Skunk'),
+    (nha_NeoScrypt, 'NeoScrypt'),
+    (nha_Equihash, 'Equihash'),
+    (nha_DaggerHashimoto, 'DaggerHashimoto'),
+    (nha_X11, 'X11'),
+    (nha_Decred, 'Decred'),
+    (nha_CryptoNight, 'CryptoNight'),
+    (nha_Qubit, 'Qubit'),
+    (nha_Keccak, 'Keccak'),
+
+)
+
+
+tera_algo = [nha_X11, nha_Skunk]
+
+
+def gen_speed(k):
+    if k in tera_algo:
+        return 'TH/s'
+    else:
+        return 'GH/s'
+
+
+ALGO_SPEED = {k: gen_speed(k) for k, v in ALGO_CHOICES}
+
+mil = 1000
+
+
+# Nicehash order types
+
+nhot_Standard_Order = 0
+nhot_Fixed_Order = 1
+
+
+# Nicehash Locations
+
+nhl_Europe = 0
+nhl_USA = 1
+
+LOCATION_CHOICES = (
+    (nhl_Europe, 'Europe'),
+    (nhl_USA, 'USA'),
+)
+
 
 def query(method, params=None):
     params = params or {}

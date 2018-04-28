@@ -11,7 +11,7 @@ setup(name='nicehash_api',
       license='MIT',
       packages=["nicehash_api", ],
       install_requires=[
-          'requests==2.18.1',
+          'requests>=2.13.0',
       ],
       zip_safe=False
       )
